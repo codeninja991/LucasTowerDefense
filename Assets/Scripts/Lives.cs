@@ -1,0 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Lives : MonoBehaviour
+{
+    public float livesAmount;
+    public Text livesText;
+    public GameObject enemy;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        livesAmount = 20;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        livesText.text = livesAmount.ToString();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Germ"))
+        {
+            enemy = other.gameObject;
+            if (livesAmount <= 0)
+            {
+                GameManager.instance.LoseGame();
+            }
+            else
+            {
+                enemy.gameObject.SetActive(false);
+                livesAmount -= 1;
+            }
+        }
+    }
+}
