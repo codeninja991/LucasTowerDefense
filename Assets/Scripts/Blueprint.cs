@@ -44,16 +44,22 @@ public class Blueprint : MonoBehaviour
                 GameManager.instance.TowerBuy(towerCost);
                 Instantiate(ActualTower, transform.position, transform.rotation);
                 towerPlaced?.Invoke(ActualTower); //"Broadcast" event 
-                Destroy(gameObject);
+                gameObject.transform.parent = GameManager.instance.trash;
+                gameObject.SetActive(false);
+                return;
             }
             else if (Input.GetMouseButton(0) && canSpawn == false || Input.GetMouseButton(0) && GameManager.instance.canBuy == false || Input.GetMouseButton(0) && GameManager.instance.coinAmount < towerCost || Input.GetMouseButton(0) && closePlacement == false)
             {
-                Destroy(gameObject);
+                gameObject.transform.parent = GameManager.instance.trash;
+                gameObject.SetActive(false);
+                return;
             }
 
             if (Input.GetMouseButton(0) && GameManager.instance.HandSanitizersPlaced.Count >= 1)
             {
-                Destroy(gameObject);
+                gameObject.transform.parent = GameManager.instance.trash;
+                gameObject.SetActive(false);
+                return;
             }
 
             if (canSpawn == false || closePlacement == false)
@@ -67,7 +73,9 @@ public class Blueprint : MonoBehaviour
 
             if (Input.GetMouseButton(1))
             {
-                Destroy(gameObject);
+                gameObject.transform.parent = GameManager.instance.trash;
+                gameObject.SetActive(false);
+                return;
             }
         }
 

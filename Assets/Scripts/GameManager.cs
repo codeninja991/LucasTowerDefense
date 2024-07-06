@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject HandSanitizer;
     public GameObject Sponge;
+    public Transform trash;
 
     [Header("Spawn Info")]
     public GameObject spawningTower;
