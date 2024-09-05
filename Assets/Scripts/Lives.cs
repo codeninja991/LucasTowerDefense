@@ -33,6 +33,7 @@ public class Lives : MonoBehaviour
             else
             {
                 enemy.gameObject.SetActive(false);
+                enemy.gameObject.transform.parent = GameManager.instance.trash;
                 livesAmount -= 1;
             }
         }

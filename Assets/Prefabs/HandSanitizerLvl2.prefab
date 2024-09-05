@@ -4967,6 +4967,8 @@ MonoBehaviour:
   - {fileID: 4271771940573014967, guid: 560e12b967409f4498a4c2f256b90a68, type: 3}
   - {fileID: 970454274410759417, guid: 5579b2f85fcb6064b8ffe7cbbb741e30, type: 3}
   - {fileID: 5036474601426071445, guid: af3d37ca883db58429f41c406e9b9971, type: 3}
+  enemyShooting: {fileID: 0}
+  enemyShot: 0
   shoot: {fileID: 646417677505651817}
   shootingAnim: {fileID: 0}
 --- !u!54 &-9221754145074031449
@@ -5029,8 +5031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8301018753318678815}
   m_LocalRotation: {x: -0, y: -0.7075879, z: -0, w: 0.7066254}
-  m_LocalPosition: {x: 0, y: 0.0065, z: 0}
-  m_LocalScale: {x: 0.7010881, y: 0.93737006, z: 0.89278}
+  m_LocalPosition: {x: -0.00054638, y: 0.0133, z: -0.0011586}
+  m_LocalScale: {x: 1.1684636, y: 1.2902219, z: 1.8860407}
   m_Children: []
   m_Father: {fileID: 4961898441960244041}
   m_RootOrder: 1
