@@ -27,6 +27,11 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach(var t in towerList)
+        {
+            
+        }
+
         //towerLevel = Mathf.Clamp(towerLevel, 0, GameManager.instance.upgradeAmounts.Length - 1);
         //upgradeText = GameManager.instance.upgradeText;
         //InitializeTowerDictionary();
@@ -56,15 +61,13 @@ public class TowerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Germ"))
         {
+            enemyShot = true;
             if (enemyShot == true)
             {
-                if (enemyShooting = null)
-                {
-                    enemyShot = false;
-                }
                 transform.LookAt(other.transform.position);
                 if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, enemylayer))
                 {
+                    enemyShooting = hit.transform.gameObject;
                     if (shooting == false && enemyShot == true)
                     {
                         StartCoroutine(DealDamage());
@@ -74,30 +77,38 @@ public class TowerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Germ"))
+        if(enemyShot == true)
         {
-            enemyShooting = other.gameObject;
-            if(enemyShot == false)
-            {
-                enemyShot = true;
-            }
+            enemyShot = false;
         }
     }
-    
-    private void OnTriggerExit(Collider other) 
-    {
-        if (other.CompareTag("Germ"))
-        {
-            if (enemyShot == true)
-            {
-                enemyShot = false;
-                enemyShooting = null;
-                shooting = false;
-            }
-        }
-    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Germ"))
+    //    {
+    //        enemyShooting = other.gameObject;
+    //        if(enemyShot == false)
+    //        {
+    //            enemyShot = true;
+    //        }
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other) 
+    //{
+    //    if (other.CompareTag("Germ"))
+    //    {
+    //        if (enemyShot == true)
+    //        {
+    //            enemyShot = false;
+    //            enemyShooting = null;
+    //            shooting = false;
+    //        }
+    //    }
+    //}
 
     private IEnumerator DealDamage()
     {
@@ -116,7 +127,7 @@ public class TowerScript : MonoBehaviour
     public bool UpgradeTower()
     {
         int towerlvl = towerLevel;
-        if(towerlvl == 0)
+        if (towerlvl == 0)
         {
             if (GameManager.instance.coinAmount >= 100)
             {
@@ -125,6 +136,7 @@ public class TowerScript : MonoBehaviour
                 GameObject temp = Instantiate(towerList[1], transform.position, transform.rotation);
                 GameManager.instance.currentTower = temp.GetComponent<TowerScript>();
                 gameObject.SetActive(false);
+                gameObject.transform.parent = GameManager.instance.trash;
                 return true;
             } else
             {
@@ -141,6 +153,7 @@ public class TowerScript : MonoBehaviour
                 GameObject temp = Instantiate(towerList[2], transform.position, transform.rotation);
                 GameManager.instance.currentTower = temp.GetComponent<TowerScript>();
                 gameObject.SetActive(false);
+                gameObject.transform.parent = GameManager.instance.trash;
                 return true;
             } else
             {
@@ -157,6 +170,7 @@ public class TowerScript : MonoBehaviour
                 GameObject temp = Instantiate(towerList[3], transform.position, transform.rotation);
                 GameManager.instance.currentTower = temp.GetComponent<TowerScript>();
                 gameObject.SetActive(false);
+                gameObject.transform.parent = GameManager.instance.trash;
                 return true;
             }
             else
@@ -170,10 +184,11 @@ public class TowerScript : MonoBehaviour
             if (GameManager.instance.coinAmount >= 600)
             {
                 GameManager.instance.coinAmount -= 600;
-                GameManager.instance.upgradeText.text = "950";
+                GameManager.instance.upgradeText.text = "MAX";
                 GameObject temp = Instantiate(towerList[4], transform.position, transform.rotation);
                 GameManager.instance.currentTower = temp.GetComponent<TowerScript>();
                 gameObject.SetActive(false);
+                gameObject.transform.parent = GameManager.instance.trash;
                 return true;
             }
             else
@@ -183,24 +198,6 @@ public class TowerScript : MonoBehaviour
             }
         }
         else if (towerlvl == 4)
-        {
-            if (GameManager.instance.coinAmount >= 950)
-            {
-                GameManager.instance.coinAmount -= 950;
-                GameManager.instance.upgradeText.text = "MAX";
-                towerLevel++;
-                GameObject temp = Instantiate(towerList[4], transform.position, transform.rotation);
-                GameManager.instance.currentTower = temp.GetComponent<TowerScript>();
-                gameObject.SetActive(false);
-                return false;
-            }
-            else
-            {
-                GameManager.instance.upgradeText.text = "950";
-                return false;
-            }
-        }
-        else if (towerlvl == 5)
         {
             GameManager.instance.upgradeText.text = "MAX";
             return false;

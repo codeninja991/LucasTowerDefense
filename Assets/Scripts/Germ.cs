@@ -46,7 +46,8 @@ public class Germ : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            gameObject.transform.parent = GameManager.instance.trash;
             GameManager.instance.AddMoney(coinAmount);
         }
             

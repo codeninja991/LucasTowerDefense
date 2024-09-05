@@ -32,12 +32,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> SpongesPlaced = new List<GameObject>();
     public List<Vector2> TowerPositions = new List<Vector2>();
     public LayerMask towerLayer;
+    public LayerMask towerBodyLayer;
 
     [Header("UI Info")]
     public Text denyPlaceText;
     public GameObject pauseMenu;
     public Text LoseWaveText;
     public GameObject LoseMenu;
+    public GameObject tutorial;
 
     [Header("Upgrade Info")]
     public GameObject upgradeMenu;
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
         upgradeMenu.gameObject.SetActive(false);
         LoseMenu.gameObject.SetActive(false);
         //InitializeTowerDictionary();
+        tutorial.SetActive(false);
     }
     //private void InitializeTowerDictionary()
     //{
@@ -115,16 +118,15 @@ public class GameManager : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(mousePos);
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
-        if (Physics.Raycast(ray, out hit, 100f, towerLayer))
+        if (Physics.Raycast(ray, out hit, 100f, towerBodyLayer))
         {
             if (Input.GetMouseButton(1))
             {
-                print(hit.collider.name);
                 Vector3 towerPos = cam.WorldToScreenPoint(hit.transform.position + upgradeOffset);
                 upgradeMenu.gameObject.SetActive(true);
                 upgradeMenu.transform.position = towerPos;
-                //currentTower = hit.collider.GetComponent<TowerScript>();
-                if(hit.collider.TryGetComponent(out currentTower))
+                currentTower = hit.collider.GetComponentInParent<TowerScript>();
+                if (hit.collider.transform.parent.gameObject.TryGetComponent(out currentTower))
                 {
                     SetCost(currentTower.towerLevel);
                 }
@@ -159,9 +161,6 @@ public class GameManager : MonoBehaviour
                 upgradeText.text = "600";
                 break;
             case 4:
-                upgradeText.text = "950";
-                break;
-            case 5:
                 upgradeText.text = "MAX";
                 break;
         }

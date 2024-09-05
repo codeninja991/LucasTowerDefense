@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7921811291823823314}
   - component: {fileID: 615315254877512091}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Hitbox
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 8937343812759582535}
   - component: {fileID: 7632573408243619178}
   - component: {fileID: 3392396516907257083}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4948418537497666815}
   - component: {fileID: 4948418537497666808}
   - component: {fileID: 3173508334589365021}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpongeLvl5
   m_TagString: Sponge
   m_Icon: {fileID: 0}
@@ -190,13 +190,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  reloadTime: 1
-  damage: 1
+  reloadTime: 1.5
+  damage: 4
   enemylayer:
     serializedVersion: 2
     m_Bits: 1024
   upgradeText: {fileID: 0}
-  towerLevel: 0
+  towerLevel: 4
   towerList:
   - {fileID: 5218890906534712251, guid: 3aa5a5a787d6a4243951663760c0284b, type: 3}
   - {fileID: 5218890906534712251, guid: 09073e557a224074b89386f9b9830da1, type: 3}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 736912679122017167}
   - component: {fileID: 4565395998196489203}
   - component: {fileID: 4330652588551980898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mouth.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 4277186538340484288}
   - component: {fileID: 5175760931022493245}
   - component: {fileID: 7566346450529919326}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 4768298044818854885}
   - component: {fileID: 5554103533895795639}
   - component: {fileID: 6969610923320286009}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: eye pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 371242291912373332}
   - component: {fileID: 8879801779692549748}
   - component: {fileID: 7194930704358025665}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: eye white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 2907123957274473795}
   - component: {fileID: 4054504912330140301}
   - component: {fileID: 458254689670366419}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
