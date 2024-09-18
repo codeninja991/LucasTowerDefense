@@ -22,6 +22,9 @@ public class TowerScript : MonoBehaviour
     public ParticleSystem shoot;
     public Animator shootingAnim;
 
+    int waveA;
+    int waveB;
+
     //public Dictionary<int, int> towerDictionary = new Dictionary<int, int>();
 
     // Start is called before the first frame update
@@ -53,8 +56,21 @@ public class TowerScript : MonoBehaviour
     {
         ray = new Ray(transform.position, transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * 3.4f, Color.red);
-        //print(towerLevel);
-        //print(upgradeAmounts[towerLevel]);
+        waveA = GameManager.instance.waveNumber;
+        if (waveA != waveB)
+        {
+            shooting = false;
+            enemyShooting = null;
+            enemyShot = false;
+            waveB = waveA;
+        }
+
+        if (GameManager.instance.germsAlive == 0)
+        {
+            shooting = false;
+            enemyShooting = null;
+            enemyShot = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -65,12 +81,16 @@ public class TowerScript : MonoBehaviour
             if (enemyShot == true)
             {
                 transform.LookAt(other.transform.position);
+                //RaycastHit hit;
                 if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, enemylayer))
                 {
-                    enemyShooting = hit.transform.gameObject;
-                    if (shooting == false && enemyShot == true)
+                    if (hit.collider.tag == ("Germ"))
                     {
-                        StartCoroutine(DealDamage());
+                        enemyShooting = hit.transform.gameObject;
+                        if (shooting == false && enemyShot == true)
+                        {
+                            StartCoroutine(DealDamage());
+                        }
                     }
                 }
             }
@@ -84,32 +104,7 @@ public class TowerScript : MonoBehaviour
             enemyShot = false;
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Germ"))
-    //    {
-    //        enemyShooting = other.gameObject;
-    //        if(enemyShot == false)
-    //        {
-    //            enemyShot = true;
-    //        }
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other) 
-    //{
-    //    if (other.CompareTag("Germ"))
-    //    {
-    //        if (enemyShot == true)
-    //        {
-    //            enemyShot = false;
-    //            enemyShooting = null;
-    //            shooting = false;
-    //        }
-    //    }
-    //}
-
+    
     private IEnumerator DealDamage()
     {
         shooting = true;
