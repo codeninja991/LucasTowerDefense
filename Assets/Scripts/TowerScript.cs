@@ -9,7 +9,7 @@ public class TowerScript : MonoBehaviour
         reloadTime = 1f;
     public int damage = 1;
     public LayerMask enemylayer;
-    private bool shooting;
+    public bool shooting;
     Ray ray;
     public Text upgradeText;
     public int towerLevel;
@@ -103,16 +103,21 @@ public class TowerScript : MonoBehaviour
         {
             enemyShot = false;
         }
+        enemyShooting = null;
     }
     
     private IEnumerator DealDamage()
     {
         shooting = true;
-        while (shooting && hit.collider)
+        while (shooting && hit.collider && enemyShot)
         {
             shoot.gameObject.SetActive(true);
             shoot.Play();
             hit.collider.GetComponent<Germ>().TakeDamage(damage);
+            if(hit.collider.GetComponent<Germ>().coinAmount == 0)
+            {
+                StopCoroutine(DealDamage());
+            }
             yield return new WaitForSeconds(reloadTime);
         }
         shoot.Stop();

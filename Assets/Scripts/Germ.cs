@@ -13,7 +13,9 @@ public class Germ : MonoBehaviour
     [Header("GermValues")]
     public int health;
     public int coinAmount = 25;
-       
+
+    Vector3 deadPosition;
+
     private void Awake()
     {
 
@@ -21,12 +23,12 @@ public class Germ : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
     }
 
     private void OnDisable()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -46,16 +48,23 @@ public class Germ : MonoBehaviour
     {
         if (health <= 0)
         {
+            GameManager.instance.AddMoney(coinAmount);
             gameObject.SetActive(false);
             gameObject.transform.parent = GameManager.instance.trash;
-            GameManager.instance.AddMoney(coinAmount);
+            if (gameObject.transform.parent == GameManager.instance.trash)
+            {
+                coinAmount = 0;
+                print(coinAmount);
+                deadPosition = new Vector3(0,0);
+                gameObject.transform.position = deadPosition;
+            }
+
         }
-            
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
 
-    }
+        }
 }
