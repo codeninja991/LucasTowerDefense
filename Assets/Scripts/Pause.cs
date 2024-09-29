@@ -10,15 +10,14 @@ public class Pause : MonoBehaviour
     public GameObject[] TutPages;
     public int currentPage;
     public GameObject previousPage;
+    public GameObject tutorial;
+    public bool pauseOn;
 
     // Start is called before the first frame update
     void Start()
     {
         PauseMenu.SetActive(false);
-        TutPages[0].SetActive(false);
-        TutPages[1].SetActive(false);
-        TutPages[2].SetActive(false);
-        TutPages[3].SetActive(false);
+        tutorial = GameManager.instance.tutorial;
     }
 
     // Update is called once per frame
@@ -29,8 +28,19 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
-        PauseMenu.SetActive(true);
+        if(pauseOn == false)
+        {
+            pauseOn = true;
+            Time.timeScale = 0;
+            PauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseOn = false;
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
+            tutorial.SetActive(false);
+        }
     }
 
     public void ResumeGame()
@@ -46,37 +56,15 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Controls()
+    public void Tutorial()
     {
+        tutorial.SetActive(true);
         PauseMenu.SetActive(false);
-        currentPage = 0;
-        PageActive();
     }
 
-    public void NextPage()
+    public void ExitTutorial()
     {
-        previousPage = TutPages[currentPage];
-        previousPage.SetActive(false);
-        currentPage++;
-        if (currentPage <= 4)
-        {
-            PageActive();
-        }
-    }
-
-    public void PreviousPage()
-    {
-        previousPage = TutPages[currentPage];
-        previousPage.SetActive(false);
-        currentPage--;
-        if(currentPage > -1)
-        {
-            PageActive();
-        }
-    }
-
-    public void PageActive()
-    {
-        TutPages[currentPage].SetActive(true);
+        tutorial.SetActive(false);
+        PauseMenu.SetActive(true);
     }
 }

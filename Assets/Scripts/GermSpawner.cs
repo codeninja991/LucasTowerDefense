@@ -49,7 +49,7 @@ public class GermSpawner : MonoBehaviour
             }
         }
         GameManager.instance.waveNumber += 1;
-        GameManager.instance.coinAmount += GameManager.instance.waveNumber * 100;
+        GameManager.instance.coinAmount += GameManager.instance.waveNumber * 50;
         waveText.text = GameManager.instance.waveNumber.ToString();
 
         if (GameManager.instance.waveNumber % 5 == 0)

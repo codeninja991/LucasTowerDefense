@@ -4910,7 +4910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 1
   reloadTime: 2
-  damage: 6
+  damage: 5
   enemylayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -4922,6 +4922,8 @@ MonoBehaviour:
   - {fileID: 4271771940573014967, guid: 560e12b967409f4498a4c2f256b90a68, type: 3}
   - {fileID: 970454274410759417, guid: 5579b2f85fcb6064b8ffe7cbbb741e30, type: 3}
   - {fileID: 5036474601426071445}
+  enemyShooting: {fileID: 0}
+  enemyShot: 0
   shoot: {fileID: 7346847349779430394}
   shootingAnim: {fileID: 0}
 --- !u!135 &6941295965823485897
@@ -4963,7 +4965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7109406549898754510}
   - component: {fileID: 72211842143154075}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Hitbox
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -4978,8 +4980,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8601481854553919931}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.0073, z: 0}
-  m_LocalScale: {x: 1.0013728, y: 1.1097845, z: 0.9164535}
+  m_LocalPosition: {x: 0, y: 0.031, z: 0.0011}
+  m_LocalScale: {x: 1.70822, y: 2, z: -1.5375139}
   m_Children: []
   m_Father: {fileID: 5669739854443279663}
   m_RootOrder: 0
