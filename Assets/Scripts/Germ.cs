@@ -54,7 +54,6 @@ public class Germ : MonoBehaviour
             if (gameObject.transform.parent == GameManager.instance.trash)
             {
                 coinAmount = 0;
-                print(coinAmount);
                 deadPosition = new Vector3(0,0);
                 gameObject.transform.position = deadPosition;
             }
