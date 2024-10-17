@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public TowerScript currentTower = null;
 
+    public float speed;
+
     public int waveNumber;
 
     //public Dictionary<int , int > towerDictionary = new Dictionary<int, int>();

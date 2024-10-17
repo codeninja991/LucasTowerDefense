@@ -18,6 +18,7 @@ public class Pause : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         tutorial = GameManager.instance.tutorial;
+        GameManager.instance.speed = 1;
     }
 
     // Update is called once per frame
@@ -47,6 +48,34 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 1;
         PauseMenu.SetActive(false);
+        if (GameManager.instance.speed == 1f)
+        {
+            pauseOn = false;
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
+            tutorial.SetActive(false);
+        }
+        else if (GameManager.instance.speed == 2f)
+        {
+            pauseOn = false;
+            Time.timeScale = 2;
+            PauseMenu.SetActive(false);
+            tutorial.SetActive(false);
+        }
+        else if (GameManager.instance.speed == 3f)
+        {
+            pauseOn = false;
+            Time.timeScale = 3;
+            PauseMenu.SetActive(false);
+            tutorial.SetActive(false);
+        }
+        else if (GameManager.instance.speed == 0.5f)
+        {
+            pauseOn = false;
+            Time.timeScale = 0.5f;
+            PauseMenu.SetActive(false);
+            tutorial.SetActive(false);;
+        }
     }
 
     public void RestartGame()

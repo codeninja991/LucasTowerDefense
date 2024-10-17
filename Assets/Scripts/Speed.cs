@@ -17,6 +17,7 @@ public class Speed : MonoBehaviour
         speedButtons[1].SetActive(false);
         speedButtons[2].SetActive(true);
         speedButtons[3].SetActive(false);
+        GameManager.instance.speed = 1;
     }
 
     // Update is called once per frame
@@ -30,25 +31,29 @@ public class Speed : MonoBehaviour
         previousButton = speedButtons[currentButton];
         previousButton.SetActive(false);
         currentButton++;
-        if (Time.timeScale == 1)
+        if (Time.timeScale == 1 && GameManager.instance.speed == 1f)
         {
             Time.timeScale = 2;
+            GameManager.instance.speed = 2f;
             ButtonActive();
         }
-        else if(Time.timeScale == 2)
+        else if(Time.timeScale == 2 && GameManager.instance.speed == 2f)
         {
             Time.timeScale = 3;
+            GameManager.instance.speed = 3f;
             currentButton = 0;
             ButtonActive();
         }
-        else if(Time.timeScale == 3)
+        else if(Time.timeScale == 3 && GameManager.instance.speed == 3f)
         {
             Time.timeScale = 0.5f;
+            GameManager.instance.speed = 0.5f;
             ButtonActive();
         }
-        else if(Time.timeScale == 0.5f)
+        else if(Time.timeScale == 0.5f && GameManager.instance.speed == 0.5f)
         {
             Time.timeScale = 1;
+            GameManager.instance.speed = 1f;
             ButtonActive();
         }
     }
