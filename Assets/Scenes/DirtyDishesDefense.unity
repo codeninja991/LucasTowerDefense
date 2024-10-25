@@ -9013,7 +9013,8 @@ MonoBehaviour:
   germSpawn: {fileID: 1626685640}
   spawningGerm: {fileID: 0}
   waveText: {fileID: 1779967191}
-  nextWaveButton: {fileID: 82458262}
+  nextWaveButton: {fileID: 82458264}
+  nextWaveText: {fileID: 617112002}
 --- !u!4 &1626685642
 Transform:
   m_ObjectHideFlags: 0
