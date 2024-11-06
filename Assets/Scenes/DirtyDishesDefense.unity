@@ -744,8 +744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.2093, y: -0.000017166}
-  m_SizeDelta: {x: 445.54318, y: 89.885025}
+  m_AnchoredPosition: {x: -133.55, y: 237.32}
+  m_SizeDelta: {x: 337.08878, y: 91.48503}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!114 &82458264
 MonoBehaviour:
@@ -11462,7 +11462,7 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   mousePos: {x: 0, y: 0, z: 0}
   coin: {fileID: 1450657451}
-  coinAmount: 2000
+  coinAmount: 50
   canBuy: 1
   germsAlive: 0
   HandSanitizersPlaced: []

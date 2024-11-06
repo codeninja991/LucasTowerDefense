@@ -45,7 +45,13 @@ public class GermSpawner : MonoBehaviour
     {
         for (int i = 0; i < 4 + GameManager.instance.waveNumber * 5; i++)
         {
-            if(GameManager.instance.waveNumber < 5)
+            //if (GameManager.instance.waveNumber % 5 == 0)
+            //{
+                //Germ.instance.health += 2;
+                //print(Germ.instance.health);
+            //}
+
+            if (GameManager.instance.waveNumber < 5)
             {
                 spawningGerm = germs[Random.Range(0, 2)];
                 Instantiate(spawningGerm, transform.position, transform.rotation);

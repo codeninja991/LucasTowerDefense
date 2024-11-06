@@ -14,11 +14,20 @@ public class Germ : MonoBehaviour
     public int health;
     public int coinAmount = 25;
 
+    public static Germ instance;
+
     Vector3 deadPosition;
 
     private void Awake()
     {
-
+        if (instance)
+        {
+            Destroy(instance.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void OnEnable()
