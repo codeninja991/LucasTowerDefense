@@ -11,7 +11,8 @@ public class GermSpawner : MonoBehaviour
     public GameObject germSpawn;
     public GameObject spawningGerm;
     public Text waveText;
-    public GameObject nextWaveButton;
+    public Button nextWaveButton;
+    public Text nextWaveText;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,19 @@ public class GermSpawner : MonoBehaviour
     {
        if(GameManager.instance.germsAlive <= 0)
         {
-            nextWaveButton.SetActive(true);
+            if(GameManager.instance.waveNumber == 0)
+            {
+                nextWaveText.text = "Start Wave";
+            } else
+            {
+                nextWaveText.text = "Next Wave";
+            }
+            nextWaveButton.gameObject.SetActive(true);
        }
        
        if(GameManager.instance.germsAlive > 0)
        {
-            nextWaveButton.SetActive(false);
+            nextWaveButton.gameObject.SetActive(false);
        }
     }
 
