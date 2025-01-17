@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public List<Vector2> TowerPositions = new List<Vector2>();
     public LayerMask towerLayer;
     public LayerMask towerBodyLayer;
+    public GameObject towerMenus;
 
     [Header("UI Info")]
     public Text denyPlaceText;
@@ -48,12 +49,12 @@ public class GameManager : MonoBehaviour
     //public int towerLevel = 0;
     public int towerUpgrade;
     public Text upgradeText;
+    public GameObject towerMenuOpen;
 
+    [Header("Game Info")]
     public static GameManager instance;
     public TowerScript currentTower = null;
-
     public float speed;
-
     public int waveNumber;
 
     //public Dictionary<int , int > towerDictionary = new Dictionary<int, int>();
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance)
+        if (instance)
         {
             Destroy(instance.gameObject);
         }
@@ -86,11 +87,17 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         denyPlaceText.gameObject.SetActive(false);
-        upgradeMenu.gameObject.SetActive(false);
+        towerMenus.gameObject.SetActive(false);
         LoseMenu.gameObject.SetActive(false);
         //InitializeTowerDictionary();
         tutorial.SetActive(false);
     }
+
+    public void ExitTutorial()
+    {
+        tutorial.SetActive(false);
+    }
+
     //private void InitializeTowerDictionary()
     //{
     //    for(int i = 0; i < upgradeAmounts.Length; i++)
@@ -111,7 +118,7 @@ public class GameManager : MonoBehaviour
         {
             coinAmount -= amount;
         }
-        
+
     }
 
     public void Update()
@@ -125,8 +132,9 @@ public class GameManager : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 Vector3 towerPos = cam.WorldToScreenPoint(hit.transform.position + upgradeOffset);
-                upgradeMenu.gameObject.SetActive(true);
-                upgradeMenu.transform.position = towerPos;
+                towerMenus.gameObject.SetActive(true);
+                towerMenus.transform.position = towerPos;
+                towerMenuOpen = hit.collider.transform.parent.gameObject;
                 currentTower = hit.collider.GetComponentInParent<TowerScript>();
                 if (hit.collider.transform.parent.gameObject.TryGetComponent(out currentTower))
                 {
@@ -134,10 +142,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        
+
         coin.text = coinAmount.ToString();
 
-        if(coinAmount <= 0)
+        if (coinAmount <= 0)
         {
             canBuy = false;
         }
@@ -148,7 +156,7 @@ public class GameManager : MonoBehaviour
 
     private void SetCost(int lvl)
     {
-        switch(lvl)
+        switch (lvl)
         {
             case 0:
                 upgradeText.text = "100";
@@ -170,24 +178,73 @@ public class GameManager : MonoBehaviour
 
     private void SanitizersPlacedDown(GameObject tower)
     {
-        
-        if(tower.CompareTag("HandSanitizer"))
+
+        if (tower.CompareTag("HandSanitizer"))
         {
             HandSanitizersPlaced.Add(tower);
             tower.name = $"HandSanitizer_{HandSanitizersPlaced.Count}";
             TowerPositions.Add(new Vector2(tower.transform.position.x, tower.transform.position.z));
         }
-        else if(tower.CompareTag("Sponge"))
+        else if (tower.CompareTag("Sponge"))
         {
             SpongesPlaced.Add(tower);
             tower.name = $"Sponge_{SpongesPlaced.Count}";
             TowerPositions.Add(new Vector2(tower.transform.position.x, tower.transform.position.z));
-        } 
+        }
     }
 
     public void CloseUpgrade()
     {
-        upgradeMenu.SetActive(false);
+        towerMenus.SetActive(false);
+    }
+
+    public void SellTower()
+    {
+        towerMenuOpen.SetActive(false);
+        towerMenuOpen.transform.parent = trash;
+        towerMenuOpen.transform.position = new Vector3(0, 0);
+        if (towerMenuOpen.CompareTag("HandSanitizer") && currentTower.towerLevel == 0)
+        {
+            coinAmount += 25;
+        }
+        else if (towerMenuOpen.CompareTag("HandSanitizer") && currentTower.towerLevel == 1)
+        {
+            coinAmount += 50;
+        }
+        else if (towerMenuOpen.CompareTag("HandSanitizer") && currentTower.towerLevel == 2)
+        {
+            coinAmount += 100;
+        }
+        else if (towerMenuOpen.CompareTag("HandSanitizer") && currentTower.towerLevel == 3)
+        {
+            coinAmount += 150;
+        }
+        else if (towerMenuOpen.CompareTag("HandSanitizer") && currentTower.towerLevel == 4)
+        {
+            coinAmount += 250;
+        }
+
+        if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 0)
+        {
+            coinAmount += 50;
+        }
+        else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 1)
+        {
+            coinAmount += 175;
+        }
+        else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 2)
+        {
+            coinAmount += 125;
+        }
+        else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 3)
+        {
+            coinAmount += 175;
+        }
+        else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 4)
+        {
+            coinAmount += 250;
+        }
+        towerMenus.SetActive(false);
     }
 
     public void LevelUp()

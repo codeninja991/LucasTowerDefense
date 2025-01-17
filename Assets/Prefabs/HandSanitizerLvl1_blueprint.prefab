@@ -305,7 +305,7 @@ MonoBehaviour:
   closePlacement: 0
   red: {fileID: 2100000, guid: dc4aeffffcec6044790d33757cc6c0fa, type: 2}
   bluePrint: {fileID: 2100000, guid: d1421891314d86a48ba618fe385a42de, type: 2}
-  towerCost: 25
+  towerCost: 50
 --- !u!54 &-8587900834323658766
 Rigidbody:
   m_ObjectHideFlags: 0
