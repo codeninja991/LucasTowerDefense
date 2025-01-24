@@ -9,6 +9,7 @@ TagManager:
   - Sponge
   - Blueprint
   - Tower
+  - GermBody
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,6 @@ public class Germ : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = GameObject.Find("GermDestination").transform.position;
     }
 
     public void TakeDamage(int damage)
@@ -73,6 +72,6 @@ public class Germ : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-
+            agent.destination = GameObject.Find("GermDestination").transform.position;
         }
 }

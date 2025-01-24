@@ -8,11 +8,13 @@ public class Lives : MonoBehaviour
     public float livesAmount;
     public Text livesText;
     public GameObject enemy;
+    public bool germKill;
 
     // Start is called before the first frame update
     void Start()
     {
         livesAmount = 20;
+        germKill = false;
     }
 
     // Update is called once per frame
@@ -25,16 +27,21 @@ public class Lives : MonoBehaviour
     {
         if (other.CompareTag("Germ"))
         {
-            enemy = other.gameObject;
-            if (livesAmount <= 0)
+            germKill = true;
+            if (germKill == true)
             {
-                GameManager.instance.LoseGame();
-            }
-            else
-            {
-                enemy.gameObject.SetActive(false);
-                enemy.gameObject.transform.parent = GameManager.instance.trash;
-                livesAmount -= 1;
+                enemy = other.gameObject;
+                if (livesAmount <= 0)
+                {
+                    GameManager.instance.LoseGame();
+                }
+                else
+                {
+                    enemy.gameObject.SetActive(false);
+                    enemy.gameObject.transform.parent = GameManager.instance.trash;
+                    livesAmount -= 1;
+                    germKill = false;
+                }
             }
         }
     }

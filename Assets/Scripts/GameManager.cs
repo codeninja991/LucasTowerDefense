@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -230,7 +231,7 @@ public class GameManager : MonoBehaviour
         }
         else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 1)
         {
-            coinAmount += 175;
+            coinAmount += 100;
         }
         else if (towerMenuOpen.CompareTag("Sponge") && currentTower.towerLevel == 2)
         {
