@@ -28,7 +28,7 @@ public class HandSanitizerSpawn : MonoBehaviour
 
     public void SpawnSponge()
     {
-        if (GameManager.instance.SpongesPlaced.Count >= 10)
+        if (GameManager.instance.SpongesPlaced.Count >= maxTowers)
         {
             if (!textAnimating)
             {

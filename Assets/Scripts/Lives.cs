@@ -27,21 +27,16 @@ public class Lives : MonoBehaviour
     {
         if (other.CompareTag("Germ"))
         {
-            germKill = true;
-            if (germKill == true)
+            enemy = other.gameObject;
+            if (livesAmount <= 0)
             {
-                enemy = other.gameObject;
-                if (livesAmount <= 0)
-                {
-                    GameManager.instance.LoseGame();
-                }
-                else
-                {
-                    enemy.gameObject.SetActive(false);
-                    enemy.gameObject.transform.parent = GameManager.instance.trash;
-                    livesAmount -= 1;
-                    germKill = false;
-                }
+                GameManager.instance.LoseGame();
+            }
+            else
+            {
+                enemy.gameObject.SetActive(false);
+                enemy.gameObject.transform.parent = GameManager.instance.trash;
+                livesAmount -= 1;
             }
         }
     }

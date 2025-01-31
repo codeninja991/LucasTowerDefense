@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6086878479531006753}
   m_Layer: 0
   m_Name: Sphere (11)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8183249977603229469}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1101055939308348009}
   m_Layer: 0
   m_Name: Sphere (18)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 3125419975099264897}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 8370301738742866271}
   m_Layer: 0
   m_Name: Sphere (19)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 7161070409698127300}
   m_Layer: 0
   m_Name: Sphere (8)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 1700314850412734128}
   m_Layer: 0
   m_Name: Sphere (17)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,8 +758,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.2917174, z: 1.4614961}
+  m_Center: {x: 0, y: -0.0068615377, z: 0.24830672}
 --- !u!114 &7168673151769508920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 6716473228731071697}
   m_Layer: 0
   m_Name: Sphere (10)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 1586862300422035950}
   m_Layer: 0
   m_Name: Sphere (15)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 6892999281275353948}
   m_Layer: 0
   m_Name: Sphere (12)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 7502655309809979800}
   m_Layer: 0
   m_Name: Sphere (14)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 7921335980657460282}
   m_Layer: 0
   m_Name: Sphere (13)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 880357415919027777}
   m_Layer: 0
   m_Name: Sphere (9)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 7956679519688171945}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 2808427895234961528}
   m_Layer: 0
   m_Name: Sphere (2)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1551,7 +1551,7 @@ GameObject:
   - component: {fileID: 7886430649120223512}
   m_Layer: 0
   m_Name: Sphere (16)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 491159501480192219}
   m_Layer: 0
   m_Name: Sphere (7)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 6622067250380385600}
   m_Layer: 0
   m_Name: Sphere (5)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 6896450453387224791}
   m_Layer: 0
   m_Name: Sphere (3)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 7495191739888576779}
   m_Layer: 0
   m_Name: Sphere (20)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2016,7 +2016,7 @@ GameObject:
   - component: {fileID: 4208225109835616334}
   m_Layer: 0
   m_Name: Sphere (1)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2109,7 +2109,7 @@ GameObject:
   - component: {fileID: 5654860330667364962}
   m_Layer: 0
   m_Name: Sphere (4)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 7901422159176320874}
   m_Layer: 0
   m_Name: Sphere (6)
-  m_TagString: Germ
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

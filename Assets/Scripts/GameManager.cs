@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void ExitTutorial()
     {
         tutorial.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     //private void InitializeTowerDictionary()
